@@ -15,6 +15,7 @@ body {
 }
 
 .name .bars {
+	-webkit-transform: rotate(-20deg);
 	transform: rotate(-20deg);
 	position: absolute;
 	height: 200%;
