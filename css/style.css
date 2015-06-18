@@ -1,0 +1,51 @@
+body {
+	text-align: center;
+}
+
+.name {
+	overflow: hidden;
+	max-width: 500px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.name img {
+	display: block;
+	width: 100%;
+}
+
+.name .bars {
+	transform: rotate(-20deg);
+	position: absolute;
+	height: 200%;
+	width: 200%;
+	z-index: -1;
+	left: -90%;
+	top: 0;
+}
+
+.bars .bar {
+	width: 100%;
+	height: 12%;
+}
+
+#char, #patt {
+	opacity: 0;
+	top: -20px;
+	position: relative;
+	-webkit-transition: top 250ms, opacity 250ms;
+}
+
+#patt {
+	-webkit-transition: top 250ms 250ms, opacity 250ms 250ms;
+}
+
+#char.active {
+	opacity: 1;
+	top: 0;
+}
+
+#patt.active {
+	opacity: 1;
+	top: 0;
+}
