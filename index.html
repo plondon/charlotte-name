@@ -72,21 +72,26 @@
         
         <script type="text/javascript">
 	        var CP = {} || CP;
-        	CP.$bars = $('.bars');
+
+	        CP.max = 0;
         	CP.top = 0;
+        	CP.$bars = $('.bars');
 
-        	$('#char').addClass('active');
-        	setTimeout(function() { $('#patt').addClass('active') })
+        	setInterval(function() {
+        		if (CP.top < -CP.max) { CP.top = 0; }
+        		CP.top = CP.top-1
+        		CP.$bars.css('top', CP.top);
 
-        	setTimeout(function() {
-	        	setInterval(function() {
-	        		if (CP.top < -650) { CP.top = -1; }
-	        		CP.top = CP.top-1
-	        		CP.$bars.css('top', CP.top);
+        	}, 10);
 
-	        	}, 10);
-        	}, 500);
+        	$(window).on('resize', function() {
+        		CP.max = CP.$bars.height() * 2;
+        		CP.max += CP.$bars.height() % 20;
+        	});
 
+        	$(document).ready(function() {
+        		$(window).trigger('resize');
+        	});
         </script>
     </body>
 </html>
